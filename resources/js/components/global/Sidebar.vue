@@ -189,11 +189,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item text-center mt-3">
-                        <a href="https://buymeacoffee.com/hbakouane" target="_blank">
-                            <img class="img-fluid rounded-pill border" style="height: 70px;" src="https://influencermarketinghub.com/wp-content/uploads/2021/03/skiptheflip_buymeacoffee3_creativeworkdonations.png">
-                        </a>
-                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
