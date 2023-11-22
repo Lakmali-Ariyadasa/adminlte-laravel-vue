@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,10 +33,13 @@
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ url('assets/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     @yield('styles')
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper" id="app">
         <Container :user="{{ auth()->user()->tojson() }}" domain="{{ env('APP_URL') }}">
@@ -47,6 +51,7 @@
             </template>
         </Container>
     </div>
-    
+
 </body>
+
 </html>

@@ -24,5 +24,11 @@
         "vue": "^2.6.12",
         "vue-loader": "^15.9.7",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "apexcharts": "^3.42.0",
+        "chart.js": "^4.4.0",
+        "vue-chartjs": "^5.2.0",
+        "vue3-apexcharts": "^1.4.4"
     }
 }

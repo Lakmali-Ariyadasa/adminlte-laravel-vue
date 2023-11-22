@@ -12,8 +12,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #f4f4f4f4;
-                color: #636b6f;
+                background-color: #FFFFFF;
+                color: #031430;
                 font-family: 'Mulish', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -34,6 +34,7 @@
                 position: absolute;
                 right: 10px;
                 top: 18px;
+                z-index:1;
             }
             .content {
                 text-align: center;
@@ -42,13 +43,15 @@
                 font-size: 54px;
             }
             .links > a {
-                color: #636b6f;
-                padding: 0 25px;
+                color: #24044c;
+                background: #fff;
+                padding: 5px 25px;
                 font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                border-radius: 15px;
             }
             .m-b-md {
                 margin-bottom: 30px;
@@ -70,15 +73,12 @@
                     @endauth
                 </div>
             @endif
-
             <div class="content">
-
-                <div class="title m-b-md">
-                    Laravel + Vue + AdminLte Starter
+            <div class="title m-b-md">
+                    UI and UX
                 </div>
-
-                <img class="img-fluid" src="{{ url('assets/images/starter.png') }}">
-            </div>
+<img class="img-fluid" src="{{ url('assets/images/home.png') }}"  style="width:100%; height:100%;object-fit:cover;opacity:0.9">
+</div>
         </div>
     </body>
 </html>

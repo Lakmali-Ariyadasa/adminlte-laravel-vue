@@ -2,7 +2,7 @@
     <div class="register-page">
         <div class="register-box">
             <div class="card">
-                <div class="card-body register-card-body">
+                <div class="card-body register-card-body" style="color:#031430 !important;">
                     <p class="login-box-msg">Welcome Back</p>
 
                     <errors :success="success" :failure="failure" :message="message" :loading="loading" />
@@ -34,7 +34,7 @@
                             <!-- /.col -->
                         </div>
                     </form>
-
+<br>
                     <a href="/register" class="text-center">Don't have an account?</a> <br/>
                     <a href="/password/reset" class="text-center">Forgot your password?</a>
                 </div>

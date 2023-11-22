@@ -2440,10 +2440,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/global/Footer.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/global/Footer.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BarChart.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BarChart.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2458,6 +2458,237 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "BarChart",
+  props: {},
+  mounted: function mounted() {
+    console.log('bar');
+    var ctx = document.getElementById('barChart');
+    var barChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BubbleChart.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BubbleChart.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "BubbleChart",
+  props: {
+    msg: String
+  },
+  mounted: function mounted() {
+    console.log('mounted');
+    var ctx = document.getElementById('bubbleChart');
+    var bubbleChart = new Chart(ctx, {
+      type: 'bubble',
+      options: {
+        aspectRatio: 1,
+        scales: {
+          x: {
+            max: 500,
+            ticks: {
+              callback: function callback(value) {
+                return "".concat(value / 100, " m");
+              }
+            }
+          },
+          y: {
+            max: 500,
+            ticks: {
+              callback: function callback(value) {
+                return "".concat(value / 100, " m");
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/ColorBubbleChart.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/ColorBubbleChart.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ColorcolorBubbleChart.",
+  props: {
+    msg: String
+  },
+  mounted: function mounted() {
+    var chartAreaBorder = {
+      id: 'chartAreaBorder',
+      beforeDraw: function beforeDraw(chart, args, options) {
+        var ctx = chart.ctx,
+            _chart$chartArea = chart.chartArea,
+            left = _chart$chartArea.left,
+            top = _chart$chartArea.top,
+            width = _chart$chartArea.width,
+            height = _chart$chartArea.height;
+        ctx.save();
+        ctx.strokeStyle = options.borderColor;
+        ctx.lineWidth = options.borderWidth;
+        ctx.setLineDash(options.borderDash || []);
+        ctx.lineDashOffset = options.borderDashOffset;
+        ctx.strokeRect(left, top, width, height);
+        ctx.restore();
+      }
+    };
+    new Chart(document.getElementById('colorBubbleChart'), {
+      type: 'bubble',
+      plugins: [chartAreaBorder],
+      options: {
+        plugins: {
+          chartAreaBorder: {
+            borderColor: 'red',
+            borderWidth: 2,
+            borderDash: [5, 5],
+            borderDashOffset: 2
+          }
+        },
+        aspectRatio: 1
+      },
+      scales: {
+        x: {
+          max: 500,
+          ticks: {
+            callback: function callback(value) {
+              return "".concat(value / 100, " m");
+            }
+          }
+        },
+        y: {
+          max: 500,
+          ticks: {
+            callback: function callback(value) {
+              return "".concat(value / 100, " m");
+            }
+          }
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/PieChart.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/PieChart.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "PieChart",
+  props: {
+    msg: String
+  },
+  mounted: function mounted() {
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/global/Footer.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/global/Footer.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 //
 //
 //
@@ -2486,8 +2717,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _partials_Errors_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../partials/Errors.vue */ "./resources/js/components/partials/Errors.vue");
-//
-//
 //
 //
 //
@@ -2636,144 +2865,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Sidebar",
   props: ['user']
@@ -2828,7 +2919,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_auth_Register__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/auth/Register */ "./resources/js/components/auth/Register.vue");
 /* harmony import */ var _components_auth_PasswordReset__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/auth/PasswordReset */ "./resources/js/components/auth/PasswordReset.vue");
 /* harmony import */ var _components_auth_PasswordUpdate__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/auth/PasswordUpdate */ "./resources/js/components/auth/PasswordUpdate.vue");
+/* harmony import */ var _components_charts_BarChart_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/charts/BarChart.vue */ "./resources/js/components/charts/BarChart.vue");
+/* harmony import */ var _components_charts_PieChart_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/charts/PieChart.vue */ "./resources/js/components/charts/PieChart.vue");
+/* harmony import */ var _components_charts_BubbleChart_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/charts/BubbleChart.vue */ "./resources/js/components/charts/BubbleChart.vue");
+/* harmony import */ var _components_charts_ColorBubbleChart_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/charts/ColorBubbleChart.vue */ "./resources/js/components/charts/ColorBubbleChart.vue");
 // Views
+
+
+
+
 
 
 
@@ -2851,7 +2950,11 @@ var app = new Vue({
     Login: _components_auth_Login__WEBPACK_IMPORTED_MODULE_4__.default,
     Register: _components_auth_Register__WEBPACK_IMPORTED_MODULE_5__.default,
     PasswordReset: _components_auth_PasswordReset__WEBPACK_IMPORTED_MODULE_6__.default,
-    PasswordUpdate: _components_auth_PasswordUpdate__WEBPACK_IMPORTED_MODULE_7__.default
+    PasswordUpdate: _components_auth_PasswordUpdate__WEBPACK_IMPORTED_MODULE_7__.default,
+    BarChart: _components_charts_BarChart_vue__WEBPACK_IMPORTED_MODULE_8__.default,
+    PieChart: _components_charts_PieChart_vue__WEBPACK_IMPORTED_MODULE_9__.default,
+    BubbleChart: _components_charts_BubbleChart_vue__WEBPACK_IMPORTED_MODULE_10__.default,
+    ColorBubbleChart: _components_charts_ColorBubbleChart_vue__WEBPACK_IMPORTED_MODULE_11__.default
   }
 });
 
@@ -38579,6 +38682,162 @@ component.options.__file = "resources/js/components/auth/Register.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/charts/BarChart.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/charts/BarChart.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BarChart_vue_vue_type_template_id_6d9d4bac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BarChart.vue?vue&type=template&id=6d9d4bac& */ "./resources/js/components/charts/BarChart.vue?vue&type=template&id=6d9d4bac&");
+/* harmony import */ var _BarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BarChart.vue?vue&type=script&lang=js& */ "./resources/js/components/charts/BarChart.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _BarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _BarChart_vue_vue_type_template_id_6d9d4bac___WEBPACK_IMPORTED_MODULE_0__.render,
+  _BarChart_vue_vue_type_template_id_6d9d4bac___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/charts/BarChart.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/BubbleChart.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/charts/BubbleChart.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BubbleChart_vue_vue_type_template_id_42510d63___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BubbleChart.vue?vue&type=template&id=42510d63& */ "./resources/js/components/charts/BubbleChart.vue?vue&type=template&id=42510d63&");
+/* harmony import */ var _BubbleChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BubbleChart.vue?vue&type=script&lang=js& */ "./resources/js/components/charts/BubbleChart.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _BubbleChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _BubbleChart_vue_vue_type_template_id_42510d63___WEBPACK_IMPORTED_MODULE_0__.render,
+  _BubbleChart_vue_vue_type_template_id_42510d63___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/charts/BubbleChart.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/ColorBubbleChart.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/charts/ColorBubbleChart.vue ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ColorBubbleChart_vue_vue_type_template_id_72e098ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ColorBubbleChart.vue?vue&type=template&id=72e098ee& */ "./resources/js/components/charts/ColorBubbleChart.vue?vue&type=template&id=72e098ee&");
+/* harmony import */ var _ColorBubbleChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ColorBubbleChart.vue?vue&type=script&lang=js& */ "./resources/js/components/charts/ColorBubbleChart.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _ColorBubbleChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _ColorBubbleChart_vue_vue_type_template_id_72e098ee___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ColorBubbleChart_vue_vue_type_template_id_72e098ee___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/charts/ColorBubbleChart.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/PieChart.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/charts/PieChart.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _PieChart_vue_vue_type_template_id_74533cd1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PieChart.vue?vue&type=template&id=74533cd1& */ "./resources/js/components/charts/PieChart.vue?vue&type=template&id=74533cd1&");
+/* harmony import */ var _PieChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PieChart.vue?vue&type=script&lang=js& */ "./resources/js/components/charts/PieChart.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _PieChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _PieChart_vue_vue_type_template_id_74533cd1___WEBPACK_IMPORTED_MODULE_0__.render,
+  _PieChart_vue_vue_type_template_id_74533cd1___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/charts/PieChart.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/global/Footer.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/global/Footer.vue ***!
@@ -38817,6 +39076,70 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/charts/BarChart.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/charts/BarChart.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BarChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BarChart.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/BubbleChart.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/charts/BubbleChart.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BubbleChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BubbleChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BubbleChart.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BubbleChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/ColorBubbleChart.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/charts/ColorBubbleChart.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ColorBubbleChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ColorBubbleChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/ColorBubbleChart.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ColorBubbleChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/PieChart.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/charts/PieChart.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PieChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/PieChart.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/global/Footer.vue?vue&type=script&lang=js&":
 /*!****************************************************************************!*\
   !*** ./resources/js/components/global/Footer.vue?vue&type=script&lang=js& ***!
@@ -38962,6 +39285,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_d4f9cbe2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_d4f9cbe2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Register.vue?vue&type=template&id=d4f9cbe2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/auth/Register.vue?vue&type=template&id=d4f9cbe2&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/BarChart.vue?vue&type=template&id=6d9d4bac&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/charts/BarChart.vue?vue&type=template&id=6d9d4bac& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChart_vue_vue_type_template_id_6d9d4bac___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChart_vue_vue_type_template_id_6d9d4bac___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChart_vue_vue_type_template_id_6d9d4bac___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BarChart.vue?vue&type=template&id=6d9d4bac& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BarChart.vue?vue&type=template&id=6d9d4bac&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/BubbleChart.vue?vue&type=template&id=42510d63&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/charts/BubbleChart.vue?vue&type=template&id=42510d63& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BubbleChart_vue_vue_type_template_id_42510d63___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BubbleChart_vue_vue_type_template_id_42510d63___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BubbleChart_vue_vue_type_template_id_42510d63___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BubbleChart.vue?vue&type=template&id=42510d63& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BubbleChart.vue?vue&type=template&id=42510d63&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/ColorBubbleChart.vue?vue&type=template&id=72e098ee&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/charts/ColorBubbleChart.vue?vue&type=template&id=72e098ee& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ColorBubbleChart_vue_vue_type_template_id_72e098ee___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ColorBubbleChart_vue_vue_type_template_id_72e098ee___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ColorBubbleChart_vue_vue_type_template_id_72e098ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ColorBubbleChart.vue?vue&type=template&id=72e098ee& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/ColorBubbleChart.vue?vue&type=template&id=72e098ee&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/charts/PieChart.vue?vue&type=template&id=74533cd1&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/charts/PieChart.vue?vue&type=template&id=74533cd1& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChart_vue_vue_type_template_id_74533cd1___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChart_vue_vue_type_template_id_74533cd1___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChart_vue_vue_type_template_id_74533cd1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PieChart.vue?vue&type=template&id=74533cd1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/PieChart.vue?vue&type=template&id=74533cd1&");
 
 
 /***/ }),
@@ -39118,7 +39509,10 @@ var render = function() {
       _c("div", { staticClass: "card" }, [
         _c(
           "div",
-          { staticClass: "card-body register-card-body" },
+          {
+            staticClass: "card-body register-card-body",
+            staticStyle: { color: "#031430 !important" }
+          },
           [
             _c("p", { staticClass: "login-box-msg" }, [_vm._v("Welcome Back")]),
             _vm._v(" "),
@@ -39216,6 +39610,8 @@ var render = function() {
                 ])
               ])
             ]),
+            _vm._v(" "),
+            _c("br"),
             _vm._v(" "),
             _c(
               "a",
@@ -39899,6 +40295,154 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BarChart.vue?vue&type=template&id=6d9d4bac&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BarChart.vue?vue&type=template&id=6d9d4bac& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", [
+        _c("canvas", { attrs: { id: "barChart", width: "400", height: "400" } })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BubbleChart.vue?vue&type=template&id=42510d63&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/BubbleChart.vue?vue&type=template&id=42510d63& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", [
+        _c("canvas", {
+          attrs: { id: "bubbleChart", width: "400", height: "400" }
+        })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/ColorBubbleChart.vue?vue&type=template&id=72e098ee&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/ColorBubbleChart.vue?vue&type=template&id=72e098ee& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", [
+        _c("canvas", {
+          attrs: { id: "colorBubbleChart", width: "400", height: "400" }
+        })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/PieChart.vue?vue&type=template&id=74533cd1&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/charts/PieChart.vue?vue&type=template&id=74533cd1& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", [
+        _c("canvas", { attrs: { id: "myChart", width: "400", height: "400" } })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/global/Footer.vue?vue&type=template&id=5e373c28&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/global/Footer.vue?vue&type=template&id=5e373c28& ***!
@@ -39922,33 +40466,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("footer", { staticClass: "main-footer" }, [
-        _c("strong", [
-          _vm._v("Copyright © 2014-2019 "),
-          _c("a", { attrs: { href: "http://adminlte.io" } }, [
-            _vm._v("AdminLTE.io")
-          ]),
-          _vm._v(".")
-        ]),
-        _vm._v("\n        All rights reserved.\n        "),
-        _c("div", { staticClass: "float-right d-none d-sm-inline-block" }, [
-          _c("b", [_vm._v("Version")]),
-          _vm._v(" 3.0.4\n        ")
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "https://buymeacoffee.com/hbakouane" } }, [
-          _c("img", {
-            staticClass: "img-fluid rounded-pill border",
-            staticStyle: { height: "70px" },
-            attrs: {
-              src:
-                "https://influencermarketinghub.com/wp-content/uploads/2021/03/skiptheflip_buymeacoffee3_creativeworkdonations.png"
-            }
-          })
-        ])
-      ])
-    ])
+    return _c("div", [_c("footer", { staticClass: "main-footer" })])
   }
 ]
 render._withStripped = true
@@ -40022,14 +40540,6 @@ var staticRenderFns = [
         _c("a", { staticClass: "nav-link", attrs: { href: "/home" } }, [
           _vm._v("Home")
         ])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "nav-item d-none d-sm-inline-block" }, [
-        _c(
-          "a",
-          { staticClass: "nav-link", attrs: { href: "/without/breadcrumbs" } },
-          [_vm._v("Without breadcrumbs")]
-        )
       ])
     ])
   },
@@ -40090,8 +40600,6 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "sidebar" }, [
           _c("div", { staticClass: "user-panel mt-3 pb-3 mb-3 d-flex" }, [
-            _vm._m(1),
-            _vm._v(" "),
             _c("div", { staticClass: "info" }, [
               _c("a", { staticClass: "d-block", attrs: { href: "#" } }, [
                 _vm._v(_vm._s(_vm.user.name))
@@ -40099,7 +40607,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(2)
+          _vm._m(1)
         ])
       ]
     )
@@ -40111,32 +40619,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("a", { staticClass: "brand-link", attrs: { href: "/" } }, [
-      _c("img", {
-        staticClass: "brand-image img-circle elevation-3",
-        staticStyle: { opacity: ".8" },
-        attrs: {
-          src: "https://adminlte.io/themes/v3/dist/img/AdminLTELogo.png",
-          alt: "AdminLTE Logo"
-        }
-      }),
-      _vm._v(" "),
       _c("span", { staticClass: "brand-text font-weight-light" }, [
-        _vm._v("AdminLTE 3")
+        _vm._v("UI and UX")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "image" }, [
-      _c("img", {
-        staticClass: "img-circle elevation-2",
-        attrs: {
-          src: "https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg",
-          alt: "User Image"
-        }
-      })
     ])
   },
   function() {
@@ -40158,96 +40643,11 @@ var staticRenderFns = [
           _c("li", { staticClass: "nav-item" }, [
             _c(
               "a",
-              {
-                staticClass: "nav-link active",
-                attrs: { href: "https://adminlte.io/docs/3.0" }
-              },
+              { staticClass: "nav-link active", attrs: { href: "/home" } },
               [
                 _c("i", { staticClass: "nav-icon fas fa-tachometer-alt" }),
                 _vm._v(" "),
-                _c("p", [_vm._v("Dashboard")])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item has-treeview" }, [
-            _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-              _c("i", { staticClass: "nav-icon fas fa-edit" }),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n                        Forms\n                        "
-                ),
-                _c("i", { staticClass: "fas fa-angle-left right" })
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "ul",
-              {
-                staticClass: "nav nav-treeview",
-                staticStyle: { display: "none" }
-              },
-              [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/forms/general.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("General Elements")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/forms/advanced.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Advanced Elements")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/forms/editors.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Editors")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/forms/validation.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Validation")])
-                    ]
-                  )
-                ])
+                _c("p", [_vm._v("Profile")])
               ]
             )
           ]),
@@ -40258,170 +40658,19 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n                        Pages\n                        "
+                  "\n                        Approvals\n                        "
                 ),
                 _c("i", { staticClass: "fas fa-angle-left right" })
               ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "ul",
-              {
-                staticClass: "nav nav-treeview",
-                staticStyle: { display: "none" }
-              },
-              [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/invoice.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Invoice")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/profile.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Profile")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/e-commerce.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("E-commerce")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/projects.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Projects")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/project-add.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Project Add")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/project-edit.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Project Edit")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/project-detail.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Project Detail")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/contacts.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Contacts")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/faq.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("FAQ")])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "pages/examples/contact-us.html" }
-                    },
-                    [
-                      _c("i", { staticClass: "far fa-circle nav-icon" }),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("Contact us")])
-                    ]
-                  )
-                ])
-              ]
-            )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item" }, [
+            _c("a", { staticClass: "nav-link", attrs: { href: "/home" } }, [
+              _c("i", { staticClass: "nav-icon fas fa-user-alt" }),
+              _vm._v(" "),
+              _c("p", [_vm._v("Users")])
+            ])
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "nav-item" }, [
@@ -40430,115 +40679,11 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("p", [
                 _vm._v(
-                  "\n                        Level 1\n                        "
+                  "\n                        Reports\n                        "
                 ),
                 _c("i", { staticClass: "right fas fa-angle-left" })
               ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "ul",
-              {
-                staticClass: "nav nav-treeview",
-                staticStyle: { display: "none" }
-              },
-              [
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "far fa-circle nav-icon" }),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("Level 2")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "far fa-circle nav-icon" }),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "\n                                Level 2\n                                "
-                      ),
-                      _c("i", { staticClass: "right fas fa-angle-left" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("ul", { staticClass: "nav nav-treeview" }, [
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "nav-link", attrs: { href: "#" } },
-                        [
-                          _c("i", {
-                            staticClass: "far fa-dot-circle nav-icon"
-                          }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Level 3")])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "nav-link", attrs: { href: "#" } },
-                        [
-                          _c("i", {
-                            staticClass: "far fa-dot-circle nav-icon"
-                          }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Level 3")])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        { staticClass: "nav-link", attrs: { href: "#" } },
-                        [
-                          _c("i", {
-                            staticClass: "far fa-dot-circle nav-icon"
-                          }),
-                          _vm._v(" "),
-                          _c("p", [_vm._v("Level 3")])
-                        ]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c("a", { staticClass: "nav-link", attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "far fa-circle nav-icon" }),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("Level 2")])
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "nav-item text-center mt-3" }, [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "https://buymeacoffee.com/hbakouane",
-                  target: "_blank"
-                }
-              },
-              [
-                _c("img", {
-                  staticClass: "img-fluid rounded-pill border",
-                  staticStyle: { height: "70px" },
-                  attrs: {
-                    src:
-                      "https://influencermarketinghub.com/wp-content/uploads/2021/03/skiptheflip_buymeacoffee3_creativeworkdonations.png"
-                  }
-                })
-              ]
-            )
+            ])
           ])
         ]
       )
