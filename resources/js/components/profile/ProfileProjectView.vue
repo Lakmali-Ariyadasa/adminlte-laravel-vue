@@ -4,7 +4,6 @@
         <div class="col-md-12">
             <h5 style="font-weight:600;color:#6f42c1;">Your Projects</h5>
         </div>
-
         <div class="row text-center">
             <div class="col-sm-6" style="background-color:#8fe38e; height: 100px; border: 5px solid #eee;">
                 <p
@@ -29,7 +28,14 @@
                     Project 4</p>
             </div>
         </div>
-        <div class="text-center"><a href=""> More Projects </a></div </div> </template> <script>
+        <div class="text-center">
+          <a href=""> More Projects</a>
+        </div> 
+
+      </div> 
+ </template>
+ 
+ <script>
         export default {
         name: "ProfileProjectView",
         props: {
@@ -39,5 +45,4 @@
 
         }
         }
-
-        </script>
+</script>

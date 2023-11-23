@@ -2973,6 +2973,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProfileProjectView",
   props: {},
@@ -41032,8 +41038,155 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("h5", { staticStyle: { "font-weight": "600", color: "#6f42c1" } }, [
+          _vm._v("Your Projects")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row text-center" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-sm-6",
+            staticStyle: {
+              "background-color": "#8fe38e",
+              height: "100px",
+              border: "5px solid #eee"
+            }
+          },
+          [
+            _c(
+              "p",
+              {
+                staticStyle: {
+                  position: "absolute",
+                  left: "45%",
+                  top: "33%",
+                  "font-weight": "600",
+                  "margin-bottom": "0",
+                  background: "#ffffff",
+                  "border-radius": "25px",
+                  padding: "4px 8px"
+                }
+              },
+              [_vm._v("\n                Project 1")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-sm-6",
+            staticStyle: {
+              "background-color": "#8e91e3",
+              height: "100px",
+              border: "5px solid #eee"
+            }
+          },
+          [
+            _c(
+              "p",
+              {
+                staticStyle: {
+                  position: "absolute",
+                  left: "45%",
+                  top: "30%",
+                  "font-weight": "600",
+                  "margin-bottom": "0",
+                  background: "#ffffff",
+                  "border-radius": "25px",
+                  padding: "4px 8px"
+                }
+              },
+              [_vm._v("\n                Project 2")]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row text-center" }, [
+        _c(
+          "div",
+          {
+            staticClass: "col-sm-6",
+            staticStyle: {
+              "background-color": "#d68ee3",
+              height: "100px",
+              border: "5px solid #eee"
+            }
+          },
+          [
+            _c(
+              "p",
+              {
+                staticStyle: {
+                  position: "absolute",
+                  left: "45%",
+                  top: "30%",
+                  "font-weight": "600",
+                  "margin-bottom": "0",
+                  background: "#ffffff",
+                  "border-radius": "25px",
+                  padding: "4px 8px"
+                }
+              },
+              [_vm._v("\n                Project 3")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col-sm-6",
+            staticStyle: {
+              "background-color": "rgb(142 227 207)",
+              height: "100px",
+              border: "5px solid #eee"
+            }
+          },
+          [
+            _c(
+              "p",
+              {
+                staticStyle: {
+                  position: "absolute",
+                  left: "45%",
+                  top: "30%",
+                  "font-weight": "600",
+                  "margin-bottom": "0",
+                  background: "#ffffff",
+                  "border-radius": "25px",
+                  padding: "4px 8px"
+                }
+              },
+              [_vm._v("\n                Project 4")]
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-center" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v(" More Projects")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
 
 
 
