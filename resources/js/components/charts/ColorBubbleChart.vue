@@ -10,7 +10,7 @@
 <script>
 
 export default {
-    name: "ColorcolorBubbleChart.",
+    name: "ColorBubbleChart.",
     props: {
         msg: String
     },

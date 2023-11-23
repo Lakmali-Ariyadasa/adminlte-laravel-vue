@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('response_form');
     }
+    public function approvals()
+    {
+        return view('approvals');
+    }
+    
 }

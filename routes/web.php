@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/reports', [App\Http\Controllers\HomeController::class, 'reports'])->name('reports');
     Route::get('/without/breadcrumbs', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
     Route::get('/form', [App\Http\Controllers\HomeController::class, 'form'])->name('response_form');
+    Route::get('/approvals', [App\Http\Controllers\HomeController::class, 'form'])->name('approvals');
 });
 
 Route::fallback(function () {

@@ -11,6 +11,8 @@ import BarChart from "./components/charts/BarChart.vue";
 import PieChart from "./components/charts/PieChart.vue";
 import BubbleChart from "./components/charts/BubbleChart.vue";
 import ColorBubbleChart from "./components/charts/ColorBubbleChart.vue";
+import ProfileProjectView from "./components/profile/ProfileProjectView.vue";
+import Approvals from "./components/approvals/ProjectApprovals.vue";
 
 
 require("./bootstrap");
@@ -32,6 +34,8 @@ const app = new Vue({
         PieChart,
         BubbleChart,
         ColorBubbleChart,
+        ProfileProjectView,
+        Approvals,
     }
 });
 
