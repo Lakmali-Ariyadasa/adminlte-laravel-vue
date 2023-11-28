@@ -39,19 +39,6 @@ $breadcrumbs = [
             </div>
         </div>
     </div>
-    <!-- initial project view -->
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <h5 style="color:#6610f2!important;">Your Projects</h5>
-            <div class="col-md-12" style="background: #dbf9f0;padding:20px;">
-                <div style="height:200px;padding:20px;">
-                    <p class="text-center" style="font-weight:600;color:#6f42c1;">Add Your First Project</p>
-                    <img src="{{ url('assets/images/nodata.jpg') }}" style="width: 100%;height: 100%;object-fit:contain;" alt="profile-card">
-                  </div>
-              <br>
-            </div>
-        </div>
-    </div>
 
     <!-- Projects view -->
     <profile-project-view></profile-project-view>

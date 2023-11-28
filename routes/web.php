@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +26,16 @@ Auth::routes(['verify' => true]);
 // Private Routes
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profile');
-    Route::get('/reports', [App\Http\Controllers\HomeController::class, 'reports'])->name('reports');
-    Route::get('/without/breadcrumbs', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+    // Route::get('/without/breadcrumbs', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+    Route::get('/approvals', [App\Http\Controllers\HomeController::class, 'approvals'])->name('response_approvals');
+    Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
     Route::get('/form', [App\Http\Controllers\HomeController::class, 'form'])->name('response_form');
-    Route::get('/approvals', [App\Http\Controllers\HomeController::class, 'form'])->name('approvals');
+    Route::get('/reports', [App\Http\Controllers\HomeController::class, 'reports'])->name('reports');
+    Route::get('/color-detection', [App\Http\Controllers\HomeController::class, 'color_detection'])->name('color_detection');
+
+
+    Route::post('/upload', [ImageController::class, 'upload']);
+    Route::post('/upload-color', [ImageController::class, 'handleImageUpload']);
 });
 
 Route::fallback(function () {

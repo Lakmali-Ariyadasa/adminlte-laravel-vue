@@ -29,5 +29,18 @@ class HomeController extends Controller
     {
         return view('approvals');
     }
+    public function feedback()
+    {
+        return view('feedback');
+    }
+    public function users()
+    {
+        return view('users');
+    }
+    public function color_detection()
+    {
+        return view('color_detection');
+    }
+    
     
 }
