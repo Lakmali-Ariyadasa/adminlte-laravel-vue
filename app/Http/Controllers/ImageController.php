@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Image;
+use Intervention\Image\Facades\Image;
+
 
 // use Intervention\Image\Facades\Image;
 
@@ -40,13 +41,15 @@ public function upload(Request $request)
         // ]);
 
         $image = $request->file('image');
+        
         $imageName = time() . '.' . $image->extension();
+        
         $image->move(public_path('uploads'), $imageName);
 
         $imagePath = public_path('uploads') . '/' . $imageName;
-
+       
         $dominantColor = $this->getDominantColor($imagePath);
-
+        
         return response()->json(['dominantColor' => $dominantColor]);
 
         \Log::info('Image upload successful.');
@@ -62,7 +65,9 @@ public function upload(Request $request)
 
     private function getDominantColor($imagePath)
     {
+       
         $img = Image::make($imagePath);
+
         $pixel = $img->limitColors(1)->pickColor(0, 0, 'hex');
         return $pixel;
     }

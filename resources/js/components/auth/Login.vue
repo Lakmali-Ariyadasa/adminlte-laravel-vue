@@ -2,8 +2,8 @@
     <div class="register-page">
         <div class="register-box">
             <div class="card">
-                <div class="card-body register-card-body" style="color:#031430 !important;">
-                    <p class="login-box-msg">Welcome Back</p>
+                <div class="card-body register-card-body" style="background:#ffffff; color:#6610f2;">
+                    <h4 class="login-box-msg">Welcome Back</h4>
 
                     <errors :success="success" :failure="failure" :message="message" :loading="loading" />
                     <form method="post" ref="form">
@@ -29,17 +29,17 @@
 
                         <div class="row">
                             <div class="col-12">
-                                <button type="button" class="btn btn-primary btn-block" @click="validate($event)">Login</button>
+                                <button type="button" class="btn btn-primary btn-block"  style="background:#6610f2; border:1px solid #6610f2; color:#ffffff;" @click="validate($event)">Login</button>
                             </div>
-                            <!-- /.col -->
+                        
                         </div>
                     </form>
 <br>
-                    <a href="/register" class="text-center">Don't have an account?</a> <br/>
-                    <a href="/password/reset" class="text-center">Forgot your password?</a>
+                    <a href="/register" class="text-center" style="color:#6610f2;">Don't have an account?</a> <br/>
+                    <a href="/password/reset" class="text-center" style="color:#6610f2;">Forgot your password?</a>
                 </div>
-                <!-- /.form-box -->
-            </div><!-- /.card -->
+               
+            </div>
         </div>
     </div>
 </template>
