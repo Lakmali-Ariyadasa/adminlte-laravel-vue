@@ -2813,6 +2813,7 @@ __webpack_require__.r(__webpack_exports__);
       var formData = new FormData();
       formData.append('image', file);
       axios.post('/upload-color', formData).then(function (response) {
+        console.log("response");
         _this.dominantColor = response.data.dominantColor;
       })["catch"](function (error) {
         console.error(error);

@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
-
-
-// use Intervention\Image\Facades\Image;
+// use Intervention\Image\ImageManager;
 
 
 class ImageController extends Controller
@@ -47,9 +45,9 @@ public function upload(Request $request)
         $image->move(public_path('uploads'), $imageName);
 
         $imagePath = public_path('uploads') . '/' . $imageName;
-       
-        $dominantColor = $this->getDominantColor($imagePath);
         
+        $dominantColor = $this->getDominantColor($imagePath);
+       
         return response()->json(['dominantColor' => $dominantColor]);
 
         \Log::info('Image upload successful.');
@@ -63,14 +61,39 @@ public function upload(Request $request)
     }
 }
 
-    private function getDominantColor($imagePath)
-    {
-       
-        $img = Image::make($imagePath);
+    // private function getDominantColor($imagePath)
+    // {
+        
+    //     $img = Image::make($imagePath);
+    //     $pixel = $img->limitColors(1)->pickColor(0, 0, 'hex');
+    //     return $pixel;
+    // }
 
+//     private function getDominantColor($imagePath)
+// {
+//     try {
+//         // $img = Image::make($imagePath);
+//         $img = Image::make($imagePath);
+//         $pixel = $img->limitColors(1)->pickColor(0, 0, 'hex');
+//         return $pixel;
+//     } catch (\Exception $e) {
+//         error_log('Error in getDominantColor: ' . $e->getMessage());
+//         return null;
+//     }
+// }
+
+private function getDominantColor($imagePath)
+{
+    try {
+        error_log('Image Path: ' . $imagePath); 
+        $img = Image::make($imagePath);
         $pixel = $img->limitColors(1)->pickColor(0, 0, 'hex');
         return $pixel;
+    } catch (\Exception $e) {
+        error_log('Error in getDominantColor: ' . $e->getMessage());
+        return null;
     }
 }
 
 
+}

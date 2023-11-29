@@ -16,12 +16,14 @@ export default {
   },
   methods: {
     handleFileUpload(event) {
+
       const file = event.target.files[0];
       const formData = new FormData();
       formData.append('image', file);
 
       axios.post('/upload-color', formData)
         .then(response => {
+              console.log("response");
           this.dominantColor = response.data.dominantColor;
         })
         .catch(error => {
