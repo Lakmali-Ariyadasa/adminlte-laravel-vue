@@ -72,6 +72,15 @@
                         </p>
                         </a>
                     </li>
+                      <li class="nav-item">
+                        <a href="/file-upload" class="nav-link" style="color:#ffffff;">
+                        <i class="nav-icon fas fa-folder"></i>
+                        <p>
+                            File Upload
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

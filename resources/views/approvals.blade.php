@@ -19,7 +19,7 @@ button {
 @section('content')
 
 @php
-$title = "Approval";
+$title = "Project Approval";
 $breadcrumbs = [
 'First' => ['url' => '/first'],
 'Second' => ['url' => '/second'],

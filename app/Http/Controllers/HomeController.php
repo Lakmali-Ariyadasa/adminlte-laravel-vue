@@ -41,6 +41,9 @@ class HomeController extends Controller
     {
         return view('color_detection');
     }
-    
+    public function file_upload()
+    {
+        return view('file_upload');
+    }
     
 }

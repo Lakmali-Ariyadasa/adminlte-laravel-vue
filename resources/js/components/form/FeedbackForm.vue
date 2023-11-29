@@ -1,15 +1,15 @@
 <template>
     <div>
-        <div style="background: #ffffff; padding: 15px;">
+        <div class="card" style="background: #ffffff; padding: 15px;">
             <form action="/action_page.php" method="post">
                 <fieldset>
 
                     <legend><span class="number">1</span> Basic Infomation</legend>
 
                     <div class="row">
-                        <div class="col-md-3"> <label>Membership type:</label></div>
+                        <div class="col-md-2"> <label>Membership type:</label></div>
 
-                        <div class="col-md-9">
+                        <div class="col-md-10">
                             <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13"
                                 class="light">Internal Member</label>
                             <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13"

@@ -52,7 +52,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" style="font-family: math;">
     <div class="wrapper" id="app">
         <Container :user="{{ auth()->user()->tojson() }}" domain="{{ env('APP_URL') }}">
             <template v-slot:breadcrumbs>

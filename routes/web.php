@@ -32,17 +32,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/form', [App\Http\Controllers\HomeController::class, 'form'])->name('response_form');
     Route::get('/reports', [App\Http\Controllers\HomeController::class, 'reports'])->name('reports');
     Route::get('/color-detection', [App\Http\Controllers\HomeController::class, 'color_detection'])->name('color_detection');
-
+    Route::get('/file-upload', [App\Http\Controllers\HomeController::class, 'file_upload'])->name('file_upload');
 
     Route::post('/upload', [ImageController::class, 'upload']);
     Route::post('/upload-color', [ImageController::class, 'handleImageUpload']);
+    Route::post('/file-upload', [ImageController::class, 'fileUpload']);
+    
 });
 
 Route::fallback(function () {
     abort(404);
 });
-
-
-// Route::get('/chart', function () {
-//     return 'here';
-// });

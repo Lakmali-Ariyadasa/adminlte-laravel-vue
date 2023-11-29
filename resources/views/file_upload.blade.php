@@ -14,7 +14,7 @@ $breadcrumbs = [
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-        <color-detection></color-detection>
+        <file-upload></file-upload>
         </div>
     </div>
 </div>

@@ -15,8 +15,8 @@ import ProfileProjectView from "./components/profile/ProfileProjectView.vue";
 import ProjectApprovals from "./components/approvals/ProjectApprovals.vue";
 import FeedbackForm from "./components/form/FeedbackForm.vue";
 import UsersDetails from "./components/users/UsersDetails.vue";
-import ColorDetection from "./components/ColorDetection.vue";
-import ColorSelection from "./components/color/ColorSelection.vue";
+import ColorDetection from "./components/color/ColorDetection.vue";
+import fileUpload from "./components/FileUpload.vue";
 
 require("./bootstrap");
 
@@ -42,7 +42,7 @@ const app = new Vue({
         FeedbackForm,
         UsersDetails,
         ColorDetection,
-        ColorSelection,
+        fileUpload,
     }
 });
 

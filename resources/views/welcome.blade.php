@@ -58,7 +58,7 @@
             }
         </style>
     </head>
-    <body>
+    <body style="font-family: math;">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

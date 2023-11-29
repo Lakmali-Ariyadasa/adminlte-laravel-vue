@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style="background: #ffffff; padding: 15px;">
+        <div class="card" style="background: #ffffff; padding: 15px;">
             <div class="table-responsive">
                 <div class="table-title">
                     <div class="row">

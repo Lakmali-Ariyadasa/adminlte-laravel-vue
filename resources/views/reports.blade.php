@@ -3,7 +3,7 @@
 @section('content')
 
 @php
-$title = "Home";
+$title = "Reports";
 $breadcrumbs = [
 'First' => ['url' => '/first'],
 'Second' => ['url' => '/second'],

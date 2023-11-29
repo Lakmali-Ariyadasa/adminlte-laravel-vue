@@ -61,27 +61,6 @@ public function upload(Request $request)
     }
 }
 
-    // private function getDominantColor($imagePath)
-    // {
-        
-    //     $img = Image::make($imagePath);
-    //     $pixel = $img->limitColors(1)->pickColor(0, 0, 'hex');
-    //     return $pixel;
-    // }
-
-//     private function getDominantColor($imagePath)
-// {
-//     try {
-//         // $img = Image::make($imagePath);
-//         $img = Image::make($imagePath);
-//         $pixel = $img->limitColors(1)->pickColor(0, 0, 'hex');
-//         return $pixel;
-//     } catch (\Exception $e) {
-//         error_log('Error in getDominantColor: ' . $e->getMessage());
-//         return null;
-//     }
-// }
-
 private function getDominantColor($imagePath)
 {
     try {
